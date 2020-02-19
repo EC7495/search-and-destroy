@@ -36,3 +36,16 @@ describe('isLoop function', () => {
 		expect(isLoop(test3)[0]).to.equal(false);
 	});
 });
+
+describe('findLoop function', () => {
+	it('returns node if linked list contains a loop', () =>{
+		expect(findLoop(test1)).to.equal(true);
+		expect(findLoop(test2)).to.equal(true);
+	});
+
+	it('returns null if linked list contains no loop', () =>{
+		expect(findLoop(test3)).to.equal(null);
+	});
+
+
+})

@@ -34,8 +34,9 @@ return [false,null]
 
 };
 
-function findLoop(array){
-  return
+function findLoop(linkedlist){
+  const [isloop,node] = isloop(linkedlist)
+  return node
 }
 
 
