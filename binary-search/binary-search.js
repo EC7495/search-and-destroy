@@ -1,8 +1,17 @@
 'use strict';
 
 // Complete this algo
-const binarySearch = (array, target) => {
-	
+const binarySearch = (array, target, low =0, high= array.length) => {
+
+	while(low<=high){
+		let mid = Math.floor((low+high)/2)
+
+		if(target === array[mid]) return true
+		else if (target < array[mid]) high = mid -1
+		else low = mid + 1
+	}
+
+	return false
 };
 
 /*

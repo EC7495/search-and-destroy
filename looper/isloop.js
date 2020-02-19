@@ -2,6 +2,33 @@
 
 //Complete this algo
 const isLoop = (linkedlist) => {
+  // const haveSeen = {}
+  // let currentNode = linkedlist.head
+
+  // while(currentNode.next){
+  //   if(haveSeen[currentNode.value]) return true
+
+  //   haveSeen[currentNode.value] = true
+  //   currentNode = currentNode.next
+  // }
+  // return false
+
+  let turtle = linkedlist.head
+  let rabbit = linkedlist.head
+
+  do{
+    try{
+      turtle = turtle.next
+      rabbit = rabbit.next.next
+    }
+    catch{
+      return false
+    }
+
+    if(turtle === rabbit) return true
+  } while(turtle !== rabbit && rabbit )
+
+return false
 
 };
 
