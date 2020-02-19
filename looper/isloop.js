@@ -22,15 +22,21 @@ const isLoop = (linkedlist) => {
       rabbit = rabbit.next.next
     }
     catch{
-      return false
+      return [false,null]
     }
+    if(turtle === rabbit) {
 
-    if(turtle === rabbit) return true
+      return [true,turtle]
+    }
   } while(turtle !== rabbit && rabbit )
 
-return false
+return [false,null]
 
 };
+
+function findLoop(array){
+  return
+}
 
 
 /*
