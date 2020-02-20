@@ -1,22 +1,25 @@
 'use strict';
 
 // Complete this algo
-const minJumps = arr => {
-  let start = arr[0];
-  let startIndx = 0;
-  let minJump = 0;
 
-  while (startIndx < arr.length - 1) {
-    debugger;
-    if (start > arr.length) return 1;
-    start = Math.max(...arr.slice(startIndx + 1, start + 1));
-    startIndx = arr.indexOf(start, startIndx);
-    minJump++;
+const reverseIndexOf = (array, value) => {
+  for (let i = array.length - 1; i >= 0; i--) {
+    if (array[i] === value) return i;
   }
 
-  return minJump;
+  return -1;
 };
 
-minJumps([2, 4, 1, 1, 2, 3, 7, 1, 1, 3]);
+const minJumps = (arr, maxJumps = arr[0]) => {
+  if (arr.length < 2) return 0;
+  else if (arr.length - 1 <= maxJumps || arr.length === 2) return 1;
+  else {
+    const allowedJumps = arr.slice(1, maxJumps + 1);
+    maxJumps = Math.max(...allowedJumps);
+    const index = reverseIndexOf(allowedJumps, maxJumps) + 1;
+    const newArray = arr.slice(index, arr.length);
+    return minJumps(newArray, maxJumps) + 1;
+  }
+};
 
 module.exports = minJumps;
